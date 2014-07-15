@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class mario {
+public class Mario {
 
     public static void main(String[] args) {
         Scanner userrequest = new Scanner(System.in);
@@ -9,29 +9,29 @@ public class mario {
 		    will input as a integer number between 0 and 23.                                       */
 
 		    /*  Define all variables needed to solve the problem.                                   */
-        double height;
-        System.out.println(" Enter the Height of the piramid: ");
-        height = userrequest.nextDouble();
+        int height;
+        System.out.println(" Enter the Height of the pyramid: ");
+        height = userrequest.nextInt();
 
 		    /*  If you get an integer that is not between 0 and 23, notify the user of the
 		        bounds and re-prompt for pyramid's height                                          */
         while (height < 0 || height >= 24) {
             System.out.printf("The pyramid's height must be between 0 and 23.\n");
             System.out.printf("Height: ");
-            height = userrequest.nextDouble();
+            height = userrequest.nextInt();
         }
-		    /*     System.out.printf("Height: %d",height);   */
-		    /*  Setup an outter loop to print the requested height of the pyramid                   */
+		   /*  Change the print function of each char to use StringBuilder then call print once for each line  */
+		    /*  Setup an outter loop to build the string of #'s for the requested height of the pyramid                   */
         for (int i = 0; i < height; i++) {
-		        /*  Print the requirnumber of spaces for each line of the pyramid                   */
+            StringBuilder stringBuilder = new StringBuilder();
             for (int j = 0; j < height - i - 1; j++) {
-                System.out.printf(" ");
+                stringBuilder.append(" ");
             }
-		        /*  Print the required number of # char for each line of the pyramid                */
+		        /*  Append the required number of spaces & # char for each line of the pyramid     */
             for (int k = 0; k < i + 2; k++) {
-                System.out.printf("#");
+                stringBuilder.append("#");
             }
-            System.out.printf("\n");
+            System.out.println(stringBuilder.toString());
         }
     }
 
